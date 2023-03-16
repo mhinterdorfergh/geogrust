@@ -1,10 +1,13 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub mod libparse {
+    pub fn add(left: usize, right: usize) -> usize {
+        left + right
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use libparse::*;
 
     #[test]
     fn it_works() {

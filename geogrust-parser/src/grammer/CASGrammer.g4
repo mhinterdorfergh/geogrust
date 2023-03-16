@@ -3,10 +3,12 @@ grammar CASGrammer;
 init : expression ;
 // init : '{' (value ',')* value? '}' ;
 
-expression  : expression3 ;
-expression3 : expression2 ((PLUS | MINUS) expression2)* ;
-expression2 : expression1 ((TIMES | DIV ) expression1)* ;
-expression1 : expression0 ((POWER       ) expression0)* ;
+expression  : expression5 ;
+expression5 : expression4 (MINUS expression4)? ;
+expression4 : expression3 (PLUS expression3)? ;
+expression3 : expression2 (DIV expression2)? ;
+expression2 : expression1 (TIMES expression1)? ;
+expression1 : expression0 (POWER expression0)? ;
 expression0 : function | identifier | braced_expression ;
 
 function : IDENTIFIER '(' expression ')' ;
